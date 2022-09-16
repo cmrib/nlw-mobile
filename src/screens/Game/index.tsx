@@ -6,7 +6,7 @@ import { GameParams } from '../../@types/navigation';
 import { FlatList, TouchableOpacity } from 'react-native';
 import { Entypo } from '@expo/vector-icons'
 import { THEME } from '../../theme';
-import { Image, View } from 'react-native';
+import { Image, View, Text } from 'react-native';
 import logoImg from '../../assets/logo-nlw-esports.png'
 import React, { useEffect, useState } from 'react';
 import { Heading } from '../../components/Heading';
@@ -65,11 +65,16 @@ export function Game() {
                     data={duos}
                     keyExtractor={item => item.id}
                     horizontal
-                    contentContainerStyle={styles.contentList}
+                    contentContainerStyle={[duos.length > 0 ? styles.contentList : styles.emptyListContent]}
                     showsHorizontalScrollIndicator={false}
                     style={styles.containerList}
                     renderItem={({ item }) => (
                         <DuoCard data={item} onConnect={() => { }} />
+                    )}
+                    ListEmptyComponent={() => (
+                        <Text style={styles.emptyListText}>
+                            Não há anúncios publicados ainda.
+                        </Text>
                     )}
                 />
 

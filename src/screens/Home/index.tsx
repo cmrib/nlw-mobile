@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Image, FlatList } from 'react-native';
+import { Image, FlatList, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { styles } from './styles';
 import logoImg from '../../assets/logo-nlw-esports.png'
